@@ -1,0 +1,237 @@
+/* Resetting global margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 95%;
+  overflow: hidden; /* Prevent any scrolling on the body */
+}
+
+.container-fluid {
+  display: flex;
+  height: 97vh; /* Ensure it matches the viewport height */
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* No scrolling allowed on the container */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: #f1f1f1; /* Milky White */
+  color: #344e41; /* Dark Green */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Match parent's height */
+  width: 15%; /* Sidebar takes 15% of the width */
+  border-right: 2px solid black; /* Black line separating sidebar from content */
+  overflow-y: auto; /* Internal scroll if needed */
+}
+
+/* App Name Styling */
+.app-name h3 {
+  color: #344e41; /* Dark Green */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* Horizontal Line */
+hr {
+  border: none;
+  border-top: 2px solid black; /* Corrected */
+  margin: 5px 0;
+}
+
+/* Nav Item Button Styling */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: black;
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item i {
+  font-size: 1.5rem;
+  margin-right: 20px; /* Space between icon and text */
+}
+
+.nav-item:hover {
+  background-color: rgba(88, 129, 87, 0.7); /* Green hover effect */
+  color: white;
+}
+
+/* Spacer between Profile & My Habits Section */
+.spacer {
+  flex-grow: 2;
+}
+
+/* Person Info Styling (Profile Icon and Full Name) */
+.person-info {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.person-info i {
+  font-size: 3rem;
+  margin-bottom: 2px;
+}
+
+.full-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #344e41; /* Dark Green */
+}
+
+/* Main Content Styling */
+.main-content {
+  display: flex;
+  gap: 20px; /* Space between habit management and progress sections */
+  background-color: #ffffff; /* White background */
+  height: 100%; /* Match parent's height */
+  width: 85%; /* Main content takes the remaining 85% */
+  overflow: hidden; /* No scrolling here */
+}
+
+/* Wrapper for the two sections */
+.content-wrapper {
+  display: flex;
+  height: 100%; /* Ensure it matches parent's height */
+  width: 100%;
+}
+
+/* Habit Management Container */
+.habit-management-container {
+  flex: 3; /* 60% of the width */
+  padding: 20px;
+  overflow-y: auto; /* Scroll if content exceeds */
+}
+
+/* Divider Styling */
+.divider {
+  width: 2px; /* Thickness of the line */
+  background-color: black; /* Black color */
+  margin: 0 10px; /* Space around the divider */
+}
+
+/* Progress Container */
+.progress-container {
+  flex: 2; /* 40% of the width */
+  padding: 20px;
+  overflow-y: auto; /* Scroll if content exceeds */
+}
+
+/* Section Header Styling */
+.section-header h2 {
+  font-size: 2rem;
+  color: #344e41; /* Dark Green */
+  padding-bottom: 10px;
+}
+
+
+
+
+/* Sidebar */
+.sidebar {
+  background-color: white;
+  padding: 1.5rem;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  height: 100vh;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* App Name */
+.app-name {
+  padding: 0.5rem 0 1rem;
+}
+
+.app-name h3 {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Horizontal Lines */
+.sidebar hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1rem 0;
+}
+
+/* Navigation Items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 1rem;
+  text-align: left;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0.25rem 0;
+}
+
+.nav-item:hover {
+  background-color: #f9f9f9;
+  color: #A7C957;
+}
+
+.nav-item i {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Spacer */
+.spacer {
+  flex-grow: 1;
+}
+
+/* Person Info */
+.person-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.person-info i {
+  font-size: 2rem;
+  color: #A7C957;
+}
+
+.full-name {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Logout Button */
+.nav-item:last-child {
+  color: #BC4749;
+  margin-bottom: 1rem;
+}
+
+.nav-item:last-child:hover {
+  background-color: #fff1f1;
+  color: #BC4749;
+}

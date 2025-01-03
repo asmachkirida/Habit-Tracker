@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- App Name -->
+    <div class="app-name">
+      <h3>Better me</h3>
+    </div>
+    <!-- Horizontal Line -->
+    <hr>
+
+    <!-- Profile Section -->
+    <button class="nav-item" (click)="openProfileModal()">
+      <i class="fas fa-user"></i><span>Profile</span>
+    </button>
+    
+    <app-profile-modal 
+      [isOpen]="isProfileModalOpen"
+      (closeModal)="closeProfileModal()">
+    </app-profile-modal>
+
+    <!-- My Habits Section -->
+    <button class="nav-item">
+      <i class="fas fa-hands-helping"></i><span>My Habits</span>
+    </button>
+
+    <!-- Space -->
+    <div class="spacer"></div>
+
+    <!-- Person Icon and Full Name -->
+    <div class="person-info">
+      <i class="fas fa-user-circle"></i>
+      <div class="full-name">{{ fullName }}</div>
+    </div>
+    
+    <hr>
+
+    <!-- Logout Button -->
+    <button class="nav-item" (click)="logout()"> <!-- Bind logout method here -->
+      <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+    </button>
+  </div>
+
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="habit-management-container">
+        <app-habit-management></app-habit-management>
+      </div>
+      <div class="progress-container">
+        <app-progress></app-progress>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>

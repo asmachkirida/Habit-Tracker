@@ -1,0 +1,54 @@
+<div class="signin-background">
+    <div class="green-shapes"></div>
+    <div class="signin-container">
+      <div class="signin-left">
+        <div class="signin-header">
+          <h2>WELCOME TO</h2>
+          <h1>BETTER ME</h1>
+ 
+        </div>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <i class="fas fa-user icon"></i>
+            <input type="text" formControlName="firstName" placeholder="First Name" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user icon"></i>
+            <input type="text" formControlName="lastName" placeholder="Last Name" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope icon"></i>
+            <input type="email" formControlName="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-transgender icon"></i>
+            <select formControlName="gender" required>
+              <option value="" disabled selected>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+  
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-birthday-cake icon"></i>
+            <input type="date" formControlName="birthDate" placeholder="Date of Birth" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock icon"></i>
+            <input [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Password" required />
+            <i class="fas fa-eye eye-icon" (click)="togglePasswordVisibility()"></i>
+          </div>
+          <button type="submit" class="signin-btn">Sign Up</button>
+          <p class="register-link">Already have an account? <a routerLink="/signin">Sign In</a></p>
+        </form>
+      </div>
+      <div class="signin-right">
+        <div class="signin-overlay">
+          <h1>TRACK YOUR HABITS</h1>
+          <p>Transform your life, one habit at a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,545 @@
+/* Base styles */
+body {
+    background-color: #f9f9f9;
+    overflow: hidden; /* Prevent horizontal scrolling */
+
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  
+  .habit-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0.1rem;
+
+  }
+  
+  /* Navigation */
+  .habit-nav {
+    
+    margin-top: -50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    width: 680px;
+    height: 20px;
+    margin: 0 auto 2rem;
+  }
+  
+  .welcome-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .welcome-section h2 {
+    color: #333;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .search-section {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+
+  .search-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+  /* Search Box */
+  .search-box {
+    width: 150px;
+    margin-left: -50px;
+    position: relative;
+
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-left: -55px;
+
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .search-box input:focus {
+    outline: none;
+    border-color: #A7C957;
+    background-color: white;
+  }
+  
+  .search-box i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    margin-left: -50px;
+
+  }
+  
+  /* Feeling Selector */
+  .feeling-selector select {
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 160px;
+  }
+  
+  .feeling-selector select:focus {
+    outline: none;
+    border-color: #A7C957;
+    background-color: white;
+  }
+  
+  /* Add Button */
+  .add-button {
+    background-color: #A7C957;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .add-button:hover {
+    background-color: #96b84e;
+    transform: translateY(-2px);
+  }
+  
+  /* Habits Grid */
+  .habits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5rem;
+    padding: 0.3rem;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  
+  /* Habit Card */
+  .habit-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 0.5rem;
+    width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .habit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #A7C957;
+  }
+  
+  .habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .habit-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  
+  /* Habit Actions */
+  .habit-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .check-button {
+    background: none;
+    border: 2px solid #A7C957;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .check-button.completed {
+    background-color: #A7C957;
+  }
+  
+  .check-button i {
+    color: white;
+  }
+  
+  .check-button:not(.completed) i {
+    color: #A7C957;
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  
+  .action-button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    display: none;
+    z-index: 10;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: none;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Habit Details */
+  .habit-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .habit-details p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #BC4749;
+    cursor: pointer;
+  }
+  
+  /* Form Groups */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #A7C957;
+    background-color: white;
+  }
+  
+  /* Objectives List */
+  .objectives-list {
+    margin-bottom: 1rem;
+  }
+  
+  .objective-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .delete-objective {
+    background: none;
+    border: none;
+    color: #BC4749;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .delete-objective:hover {
+    transform: scale(1.1);
+  }
+  
+  .add-objective {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .add-objective input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .add-objective button {
+    background-color: #A7C957;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .add-objective button:hover {
+    background-color: #96b84e;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .cancel-button {
+    background-color: #BC4749;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .save-button {
+    background-color: #A7C957;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .cancel-button:hover,
+  .save-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .habit-nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .search-section {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .search-box {
+      width: 100%;
+    }
+    
+    .feeling-selector select {
+      width: 100%;
+    }
+    
+    .add-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+
+  .habits-grid {
+    display: flex;
+    flex-direction: column; /* This ensures the habits stack vertically */
+    gap: 0.5rem; /* Adjust the gap between habit cards */
+    padding: 0.7rem;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  /* Style for the goal checkbox */
+input[type="checkbox"] {
+  width: 20px; /* Adjust the width of the checkbox */
+  height: 20px; /* Adjust the height of the checkbox */
+  appearance: none; /* Remove default checkbox appearance */
+  border: 2px solid #5a5a5a; /* Border color */
+  border-radius: 4px; /* Round the corners */
+  background-color: #fff; /* Background color */
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Style when checkbox is checked */
+input[type="checkbox"]:checked {
+  background-color: #6A994E; /* Checked background color */
+  border-color: #6A994E; /* Border color when checked */
+}
+
+/* Checkmark when checkbox is checked */
+input[type="checkbox"]:checked::before {
+  content: '\2713'; /* Unicode checkmark */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  color: #fff; /* Checkmark color */
+}
+
+/* Style when checkbox is hovered */
+input[type="checkbox"]:hover {
+  border-color: #A7C957; /* Border color on hover */
+}
+
+/* Optional: Style label (optional if you want to style the label with the checkbox) */
+label {
+  font-size: 16px;
+  color: #333; /* Text color */
+  margin-left: 8px;
+  cursor: pointer; /* Ensure cursor is a pointer on hover */
+  user-select: none; /* Disable text selection */
+  display: flex;
+  align-items: center;
+}
+
+/* Style for when checkbox is checked and label text is changed */
+input[type="checkbox"]:checked + label {
+  color: #6A994E; /* Color when checked */
+}

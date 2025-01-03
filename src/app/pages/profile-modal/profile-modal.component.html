@@ -1,0 +1,71 @@
+<div *ngIf="isOpen" class="modal-overlay">
+  <div class="modal-content">
+    <!-- Close Button -->
+    <button (click)="onsmth()" style="background-color: transparent; border: none; font-size: 15px; cursor: pointer; color: #333; padding: -10px; margin-left: 430px;">
+      <i class="fas fa-times"></i> Close
+    </button>
+    
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-icon">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="badge">
+        <i class="fas fa-award"></i>
+        <span>{{ trophy }} League</span> <!-- Dynamically display the trophy league -->
+      </div>
+    </div>
+
+    <!-- Profile Form -->
+    <div class="profile-form">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" [(ngModel)]="userData.firstName" [readonly]="!isEditing">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" [(ngModel)]="userData.lastName" [readonly]="!isEditing">
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" [(ngModel)]="userData.dateOfBirth" [readonly]="!isEditing">
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <input type="text" [(ngModel)]="userData.sex" [readonly]="!isEditing">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="userData.email" [readonly]="!isEditing">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button *ngIf="!isEditing" class="edit-button" (click)="toggleEdit()">
+          <i class="fas fa-edit"></i> Edit
+        </button>
+        <button *ngIf="isEditing" class="save-button" (click)="saveChanges()">
+          <i class="fas fa-save"></i> Save
+        </button>
+      </div>
+    </div>
+
+    <!-- Status Message -->
+    <div class="status-message" *ngIf="statusMessage">
+      <p [ngClass]="{'error': status === 'error', 'success': status === 'success'}">{{ statusMessage }}</p>
+    </div>
+
+    <!-- Streak Section -->
+ <!-- Streak Section -->
+<div class="streak-section">
+  <h3>Your Streak</h3>
+  <div class="streak-dots">
+    <div *ngFor="let day of streakData" class="streak-day">
+      <div [ngClass]="{'streak-dot': true, 'active': day.active, 'inactive': !day.active}"></div>
+      <span>{{ day.day }}</span>
+    </div>
+  </div>
+</div>
+
+    
+</div>

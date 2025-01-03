@@ -1,0 +1,54 @@
+<div class="signin-background">
+  <div class="green-shapes"></div>
+  <div class="signin-container">
+    <div class="signin-left">
+      <div class="signin-header">
+        <h1>BETTER ME</h1>
+        <p>Your journey to a better habit starts here.</p>
+      </div>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            required
+          />
+          <div *ngIf="signinForm.get('email')?.invalid && signinForm.get('email')?.touched" class="error">
+            Valid email is required.
+          </div>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+          <i class="fas fa-eye eye-icon" (click)="togglePasswordVisibility()"></i>
+          <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched" class="error">
+            Password is required.
+          </div>
+        </div>
+        <button type="submit" class="signin-btn" [disabled]="signinForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Sign In</span>
+          <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i> Signing In...</span>
+        </button>
+        <p class="register-link">
+          Don't have an account? <a routerLink="/signup">Join Today</a>
+        </p>
+        <div *ngIf="loginError" class="error-message">
+          {{ loginError }}
+        </div>
+      </form>
+    </div>
+    <div class="signin-right">
+      <div class="signin-overlay">
+        <h1>TRACK YOUR HABITS</h1>
+        <p>Transform your life, one habit at a time.</p>
+      </div>
+    </div>
+  </div>
+</div>

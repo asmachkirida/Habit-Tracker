@@ -1,0 +1,204 @@
+<div class="habit-container">
+  <!-- Top Navigation Bar -->
+  <div class="habit-nav">
+    <div class="welcome-section">
+      <i class="fas fa-hand-wave"></i>
+      <h2>Hello, {{userName}}!</h2>
+    </div>
+
+    <div class="search-section">
+     
+      <div class="feeling-selector">
+        <select [(ngModel)]="selectedFeeling" (change)="saveFeeling()">
+          <option value="" disabled selected>Today I'm feeling...</option>
+          <option *ngFor="let feeling of feelings" [value]="feeling">
+            {{feeling}}
+          </option>
+        </select>
+      </div>
+      
+
+      <button class="add-button" (click)="openAddModal()">
+        <i class="fas fa-plus"></i>
+        Add Habit
+      </button>
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Edit Habit Modal -->
+<div class="modal" *ngIf="showEditModal && selectedHabit">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Edit Habit</h2>
+      <button class="close-button" (click)="closeEditModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Habit Name</label>
+        <input type="text" [(ngModel)]="selectedHabit.name" placeholder="Enter habit name">
+      </div>
+
+      <div class="form-group">
+        <label>Frequency</label>
+        <select [(ngModel)]="selectedHabit.frequency">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Reminder Time</label>
+        <input type="time" [(ngModel)]="selectedHabit.reminderTime">
+      </div>
+
+      <div class="modal-footer">
+        <button class="cancel-button" (click)="closeEditModal()">Cancel</button>
+        <button class="save-button" (click)="updateHabit()">Save Habit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Habits Grid -->
+  <div class="habits-grid">
+    <div class="habit-card" *ngFor="let habit of habits">
+      <div class="habit-header">
+        <h3>Habit: {{ habit.name }}</h3>
+        <div class="habit-actions">
+          <button class="check-button" 
+                  [class.completed]="habit.checked"
+                  (click)="toggleHabitCompletion(habit)">
+            <i class="fas" [class.fa-check]="habit.checked" 
+                         [class.fa-circle]="!habit.checked"></i>
+          </button>
+          <div class="dropdown">
+            <button class="action-button">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="dropdown-content">
+              <button (click)="editHabit(habit)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button (click)="deleteHabit(habit.id)">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="habit-details">
+        <!-- Using the "remainder" for the reminder time -->
+        <p><i class="fas fa-clock"></i> {{ habit.remainder | date:'short' }}</p>
+        
+        <!-- Using the "daily", "weekly", "monthly" to display frequency -->
+        <p><i class="fas fa-calendar"></i> 
+          <span *ngIf="habit.daily">Daily</span>
+          <span *ngIf="habit.weekly">Weekly</span>
+          <span *ngIf="habit.monthly">Monthly</span>
+        </p>
+
+        <!-- Displaying the length of the goals array (objectives) -->
+        <p><i class="fas fa-list"></i> {{ habit.goals?.length }} objectives</p>
+
+        <!-- Displaying each goal (objective) with its completion status -->
+   <!-- Displaying each goal (objective) with its completion status -->
+<div class="goals-list" *ngIf="habit.goals.length > 0">
+  <ul>
+    <li *ngFor="let goal of habit.goals">
+      <label>
+        <input type="checkbox" [(ngModel)]="goal.checked" (change)="toggleGoalCompletion(goal)" />
+        {{ goal.name }}
+      </label>
+    </li>
+  </ul>
+</div>
+
+        
+        
+        
+        <div *ngIf="habit.goals.length === 0">
+          <p>No objectives for this habit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Habit Modal -->
+  <div class="modal" *ngIf="showAddModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Habit</h2>
+        <button class="close-button" (click)="closeAddModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Habit Name</label>
+          <input type="text" [(ngModel)]="newHabit.name" placeholder="Enter habit name">
+        </div>
+
+        <div class="form-group">
+          <label>Frequency</label>
+          <select [(ngModel)]="newHabit.frequency">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Reminder Time</label>
+          <input type="time" [(ngModel)]="newHabit.reminderTime">
+        </div>
+        
+        <div class="form-group">
+          <label>Objectives</label>
+          <div class="objectives-list">
+            <div *ngFor="let objective of newHabit.goals" class="objective-item">
+              <span>{{objective.name}}</span>
+              <button class="delete-objective" 
+                      (click)="removeObjective(objective)">
+                ×
+              </button>
+            </div>
+          </div>
+          <div class="add-objective">
+            <input type="text" [(ngModel)]="newObjective.name" 
+                   placeholder="Enter objective">
+            <button (click)="addObjective()">Add</button>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="cancel-button" (click)="closeAddModal()">Cancel</button>
+          <button class="save-button" (click)="addHabit()">Save Habit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

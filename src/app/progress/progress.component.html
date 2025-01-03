@@ -1,0 +1,21 @@
+<div class="progress-container">
+    <!-- Quote Section -->
+    <div class="quote-section">
+      <i class="fas fa-lightbulb quote-icon"></i>
+      <p class="quote-text">"{{ quote || "Fetching your quote..." }}"</p>
+    </div>
+    
+  
+    <!-- Habits Checked Chart -->
+    <div class="chart-section">
+      <h3 class="chart-title">Habits Checked Per Day</h3>
+      <div echarts [options]="habitsCheckedChartOption" class="chart"></div>
+    </div>
+  
+    <!-- Ratio Chart -->
+    <div class="chart-section">
+      <h3 class="chart-title">Checked Habits Ratio</h3>
+      <div echarts [options]="habitsRatioChartOption" class="chart"></div>
+    </div>
+  </div>
+  
